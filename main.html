@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Office of Sir Shafiq Ur Rehman | Theoretical Mathematics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" xintegrity="sha512-fDb9P5bVfuUy4Lad2IOOFgbrO1iU6iooYrev7oADbHea3AyPj2oVn3/w2sS9IaGfDe43dTJPCifYz3w0Hk+3OQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" xintegrity="sha512-LQNxz3DNEaY3S4Kj44j2CrjMkkcDkL7eP9G9Y6YGDyIeDiB2/91xNlMVY5tT5E_sY/2UeL3N2L2DbHjTs9vHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" xintegrity="sha512-iWiuBS5nt6r60fP/l2AEr+g33T1j/cCRDAHvsRse31GfE3QEmI93S9i6G2WHj/iH9nN3sfn9X39CT9+56M4F3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #0a0a0a;
+            color: #c7c7c7;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        .hero-canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+        .content-section {
+            position: relative;
+            z-index: 2;
+        }
+        .katex-display {
+            margin: 1em 0;
+            font-size: 1.2em;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-link:hover {
+            color: #ffffff;
+            border-color: #a0a0a0;
+        }
+        .publication-item {
+            border-left: 3px solid #4a5568;
+            padding-left: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+        .publication-item:hover {
+            border-color: #d1d5db;
+        }
+        .interactive-grid-cell {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-20 bg-opacity-50 bg-black backdrop-blur-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-white">Sir Shafiq Ur Rehman</a>
+                <ul class="hidden md:flex space-x-8 text-lg">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#research" class="nav-link">Research</a></li>
+                    <li><a href="#publications" class="nav-link">Publications</a></li>
+                    <li><a href="#exploratorium" class="nav-link">Exploratorium</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                    &#9776;
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col items-center space-y-4 py-4">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#exploratorium" class="nav-link">Exploratorium</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <div id="hero-canvas" class="hero-canvas-container"></div>
+        <div class="hero-overlay"></div>
+        <div class="content-section p-6">
+            <h1 class="text-6xl md:text-8xl font-bold text-white tracking-wider">Shafiq Ur Rehman</h1>
+            <p class="text-xl md:text-2xl mt-4 text-gray-300 font-light">Fields Medal Laureate | Professor of Mathematics & Physics</p>
+            <p class="text-lg md:text-xl mt-2 text-gray-400">Exploring the frontiers where Mathematics and Physics converge.</p>
+        </div>
+    </section>
+
+    <div class="bg-[#111111]">
+        <!-- About Section -->
+        <section id="about" class="py-20 content-section container mx-auto px-6">
+            <h2 class="text-5xl text-white mb-12 text-center">About the Mathematician</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-1 flex justify-center">
+                    <img src="https://i.ibb.co/gLMZTWHV/Screenshot-2025-08-05-005803.png" alt="Sir Shafiq Ur Rehman in his office" class="rounded-lg shadow-2xl border-4 border-gray-700 w-full max-w-sm">
+                </div>
+                <div class="md:col-span-2 text-lg text-gray-300 leading-relaxed">
+                    <p class="mb-6">
+                        A major in mathematics with deep expertise in physics, Sir Shafiq Ur Rehman is a distinguished professor at the Institute for Advanced Study. His work is recognized globally for its transformative contributions at the intersection of the two fields.
+                    </p>
+                    <p class="mb-6">
+                        His research elegantly bridges disparate areas of mathematics, revealing profound, underlying connections between number theory and quantum physics, particularly in algebraic topology and the Geometric Langlands program. For this work, which is characterized by its deep insight and technical brilliance, he was awarded the Fields Medal in 2018.
+                    </p>
+                    <p>
+                        He holds a Ph.D. from Princeton University and has been a visiting scholar at numerous prestigious institutions, including the Max Planck Institute for Mathematics and the Collège de France.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="py-20 bg-[#0a0a0a] content-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl text-white mb-16 text-center">Core Research Areas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800">
+                        <h3 class="text-3xl text-white mb-4">Homotopy Type Theory</h3>
+                        <p class="text-gray-400 mb-4">Exploring the foundations of mathematics by treating types as spaces, leading to new insights in logic, computer science, and geometry. Central to this is the univalence axiom:</p>
+                        <div class="text-center text-white">$$ (A \simeq B) \simeq (A = B) $$</div>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800">
+                        <h3 class="text-3xl text-white mb-4">Geometric Langlands</h3>
+                        <p class="text-gray-400 mb-4">Investigating a deep conjecture relating geometric objects (sheaves on algebraic curves) to representation theory. This involves the study of D-modules and Hecke eigensheaves.</p>
+                        <div class="text-center text-white">$$ \text{Fun}(\text{Bun}_G(X)) \longleftrightarrow \text{IndCoh}(\text{LocSys}_{\check{G}}(X)) $$</div>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800">
+                        <h3 class="text-3xl text-white mb-4">Quantum Cohomology</h3>
+                        <p class="text-gray-400 mb-4">Deforming the classical cohomology ring of a symplectic manifold to count pseudoholomorphic curves, revealing connections to string theory and mirror symmetry. The quantum product is defined by Gromov-Witten invariants.</p>
+                        <div class="text-center text-white">$$ (a \star b, c) = \sum_{d \in H_2(M)} q^d \langle a, b, c \rangle_{0,3,d} $$</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="py-20 content-section container mx-auto px-6">
+            <h2 class="text-5xl text-white mb-12 text-center">Selected Publications</h2>
+            <div class="space-y-10">
+                <div class="publication-item">
+                    <h4 class="text-2xl text-white mb-1">On the Categorification of Hecke Algebras</h4>
+                    <p class="text-gray-400">Rehman, S. U. (2022). <span class="italic">Journal of the American Mathematical Society, 35</span>(3), 789-841.</p>
+                </div>
+                <div class="publication-item">
+                    <h4 class="text-2xl text-white mb-1">Topological Invariants from Derived Symplectic Geometry</h4>
+                    <p class="text-gray-400">Rehman, S. U. (2018). <span class="italic">Annals of Mathematics, 188</span>(2), 345-401.</p>
+                </div>
+                <div class="publication-item">
+                    <h4 class="text-2xl text-white mb-1">A Homotopical Approach to the Geometric Langlands Correspondence</h4>
+                    <p class="text-gray-400">Rehman, S. U., & Alistair, J. (2015). <span class="italic">Inventiones Mathematicae, 201</span>(1), 1-97.</p>
+                </div>
+                 <div class="publication-item">
+                    <h4 class="text-2xl text-white mb-1">Moduli Spaces of Sheaves on Calabi-Yau Manifolds</h4>
+                    <p class="text-gray-400">Rehman, S. U. (2012). <span class="italic">Duke Mathematical Journal, 158</span>(3), 459-543.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Exploratorium Section -->
+        <section id="exploratorium" class="py-20 bg-[#111111] content-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl text-white mb-4 text-center">Mathematical Exploratorium</h2>
+                <p class="text-lg text-gray-400 text-center mb-12 max-w-3xl mx-auto">A small interactive space for mathematical concepts. Below is an implementation of Conway's Game of Life, a cellular automaton devised by John Conway. Click cells to bring them to life, then press Start.</p>
+                
+                <div class="bg-[#1a1a1a] p-6 rounded-lg shadow-xl border border-gray-800">
+                    <div id="game-of-life-grid" class="grid mb-6" style="grid-template-columns: repeat(50, 1fr);"></div>
+                    <div class="flex justify-center space-x-4">
+                        <button id="start-button" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">Start</button>
+                        <button id="stop-button" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">Stop</button>
+                        <button id="reset-button" class="bg-gray-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <footer id="contact" class="py-20 bg-[#0a0a0a] content-section">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl text-white mb-8">Contact</h2>
+                <p class="text-lg text-gray-400 mb-2">Sir Shafiq Ur Rehman</p>
+                <p class="text-lg text-gray-400 mb-2">Institute for Advanced Study</p>
+                <p class="text-lg text-gray-400 mb-8">1 Einstein Drive, Princeton, NJ 08540</p>
+                <a href="mailto:s.rehman.office@ias.edu" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-colors text-xl">
+                    Send Inquiry
+                </a>
+            </div>
+            <div class="text-center text-gray-600 mt-16 border-t border-gray-800 pt-8">
+                <p>&copy; <span id="year"></span> Sir Shafiq Ur Rehman. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // KaTeX auto-rendering
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError : false
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileMenu.addEventListener('click', (e) => {
+                if(e.target.tagName === 'A'){
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-opacity-90');
+                } else {
+                    header.classList.remove('bg-opacity-90');
+                }
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Three.js Hero Animation ---
+            let scene, camera, renderer, particles, mouse;
+            const container = document.getElementById('hero-canvas');
+
+            function initThree() {
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+                container.appendChild(renderer.domElement);
+                
+                mouse = new THREE.Vector2();
+
+                const particleCount = 5000;
+                const positions = new Float32Array(particleCount * 3);
+                const velocities = new Float32Array(particleCount * 3);
+
+                for (let i = 0; i < particleCount; i++) {
+                    positions[i * 3] = (Math.random() - 0.5) * 20;
+                    positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+                    positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+                    
+                    velocities[i * 3] = (Math.random() - 0.5) * 0.01;
+                    velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.01;
+                    velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.01;
+                }
+
+                const geometry = new THREE.BufferGeometry();
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
+
+                const material = new THREE.PointsMaterial({
+                    color: 0xffffff,
+                    size: 0.02,
+                    transparent: true,
+                    opacity: 0.7,
+                    blending: THREE.AdditiveBlending
+                });
+
+                particles = new THREE.Points(geometry, material);
+                scene.add(particles);
+
+                camera.position.z = 10;
+                
+                window.addEventListener('resize', onWindowResize, false);
+                document.addEventListener('mousemove', onMouseMove, false);
+            }
+
+            function onMouseMove(event) {
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            }
+
+            function animateThree() {
+                requestAnimationFrame(animateThree);
+
+                const positions = particles.geometry.attributes.position.array;
+                const velocities = particles.geometry.attributes.velocity.array;
+
+                for (let i = 0; i < positions.length / 3; i++) {
+                    const ix = i * 3;
+                    const iy = i * 3 + 1;
+                    const iz = i * 3 + 2;
+
+                    // Update position
+                    positions[ix] += velocities[ix];
+                    positions[iy] += velocities[iy];
+                    positions[iz] += velocities[iz];
+
+                    // Boundary check
+                    if (positions[ix] > 10 || positions[ix] < -10) velocities[ix] *= -1;
+                    if (positions[iy] > 10 || positions[iy] < -10) velocities[iy] *= -1;
+                    if (positions[iz] > 10 || positions[iz] < -10) velocities[iz] *= -1;
+                    
+                    // Mouse interaction
+                    const particleVector = new THREE.Vector3(positions[ix], positions[iy], positions[iz]);
+                    const mouseVector = new THREE.Vector3(mouse.x * 10, mouse.y * 10, 0);
+                    const distance = particleVector.distanceTo(mouseVector);
+                    
+                    if (distance < 2) {
+                        const force = (2 - distance) * 0.001;
+                        const direction = particleVector.sub(mouseVector).normalize();
+                        velocities[ix] += direction.x * force;
+                        velocities[iy] += direction.y * force;
+                    }
+                }
+                
+                particles.geometry.attributes.position.needsUpdate = true;
+                particles.rotation.y += 0.0001;
+
+                renderer.render(scene, camera);
+            }
+
+            function onWindowResize() {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            }
+            
+            if (container) {
+                initThree();
+                animateThree();
+            }
+
+            // --- Conway's Game of Life ---
+            const gridElement = document.getElementById('game-of-life-grid');
+            const startButton = document.getElementById('start-button');
+            const stopButton = document.getElementById('stop-button');
+            const resetButton = document.getElementById('reset-button');
+
+            const numCols = 50;
+            const numRows = 30;
+            let grid = new Array(numRows).fill(null).map(() => new Array(numCols).fill(0));
+            let intervalId = null;
+
+            function createGrid() {
+                gridElement.innerHTML = '';
+                gridElement.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+                gridElement.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
+
+                for (let i = 0; i < numRows; i++) {
+                    for (let j = 0; j < numCols; j++) {
+                        const cell = document.createElement('div');
+                        cell.classList.add('interactive-grid-cell', 'w-full', 'aspect-square', 'border', 'border-gray-700');
+                        if (grid[i][j] === 1) {
+                            cell.style.backgroundColor = '#d1d5db';
+                        } else {
+                            cell.style.backgroundColor = '#374151';
+                        }
+                        cell.addEventListener('click', () => toggleCell(i, j));
+                        gridElement.appendChild(cell);
+                    }
+                }
+            }
+
+            function toggleCell(row, col) {
+                if (intervalId) return; // Don't allow changes while running
+                grid[row][col] = grid[row][col] === 1 ? 0 : 1;
+                createGrid();
+            }
+
+            function nextGeneration() {
+                const newGrid = new Array(numRows).fill(null).map(() => new Array(numCols).fill(0));
+                for (let i = 0; i < numRows; i++) {
+                    for (let j = 0; j < numCols; j++) {
+                        const neighbors = countNeighbors(i, j);
+                        if (grid[i][j] === 1 && (neighbors < 2 || neighbors > 3)) {
+                            newGrid[i][j] = 0;
+                        } else if (grid[i][j] === 0 && neighbors === 3) {
+                            newGrid[i][j] = 1;
+                        } else {
+                            newGrid[i][j] = grid[i][j];
+                        }
+                    }
+                }
+                grid = newGrid;
+                createGrid();
+            }
+
+            function countNeighbors(row, col) {
+                let count = 0;
+                for (let i = -1; i <= 1; i++) {
+                    for (let j = -1; j <= 1; j++) {
+                        if (i === 0 && j === 0) continue;
+                        const newRow = (row + i + numRows) % numRows;
+                        const newCol = (col + j + numCols) % numCols;
+                        count += grid[newRow][newCol];
+                    }
+                }
+                return count;
+            }
+
+            startButton.addEventListener('click', () => {
+                if (!intervalId) {
+                    intervalId = setInterval(nextGeneration, 100);
+                    startButton.textContent = 'Running...';
+                    startButton.disabled = true;
+                }
+            });
+
+            stopButton.addEventListener('click', () => {
+                clearInterval(intervalId);
+                intervalId = null;
+                startButton.textContent = 'Start';
+                startButton.disabled = false;
+            });
+
+            resetButton.addEventListener('click', () => {
+                clearInterval(intervalId);
+                intervalId = null;
+                grid = new Array(numRows).fill(null).map(() => new Array(numCols).fill(0));
+                createGrid();
+                startButton.textContent = 'Start';
+                startButton.disabled = false;
+            });
+
+            createGrid();
+        });
+    </script>
+</body>
+</html>
