@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Office of Sir Shafiq Ur Rehman | Theoretical Mathematics</title>
+    <title>Sir Shafiq Ur Rehman | Mathematical Scholar & Educator</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" xintegrity="sha512-fDb9P5bVfuUy4Lad2IOOFgbrO1iU6iooYrev7oADbHea3AyPj2oVn3/w2sS9IaGfDe43dTJPCifYz3w0Hk+3OQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" xintegrity="sha512-LQNxz3DNEaY3S4Kj44j2CrjMkkcDkL7eP9G9Y6YGDyIeDiB2/91xNlMVY5tT5E_sY/2UeL3N2L2DbHjTs9vHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" xintegrity="sha512-iWiuBS5nt6r60fP/l2AEr+g33T1j/cCRDAHvsRse31GfE3QEmI93S9i6G2WHj/iH9nN3sfn9X39CT9+56M4F3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX for Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0KOVEMVIhbGKLCePo23SDr3LnnGCE92ay1+C4AnEkuUTEbVQxgJOC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" xintegrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+
+    <!-- Custom Styles -->
     <style>
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: #0a0a0a;
-            color: #c7c7c7;
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #a3a3a3;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
+            font-weight: 700;
+            color: #e5e5e5;
         }
         .hero-canvas-container {
             position: absolute;
@@ -35,66 +46,122 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+            background: radial-gradient(ellipse at center, rgba(5,5,5,0.1) 0%, rgba(5,5,5,0.9) 80%, #050505 100%);
             z-index: 1;
         }
         .content-section {
             position: relative;
             z-index: 2;
         }
-        .katex-display {
-            margin: 1em 0;
-            font-size: 1.2em;
-        }
         .nav-link {
             transition: color 0.3s ease, border-color 0.3s ease;
             border-bottom: 2px solid transparent;
             padding-bottom: 4px;
+            position: relative;
         }
-        .nav-link:hover {
-            color: #ffffff;
-            border-color: #a0a0a0;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #e5e5e5;
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
         }
-        .publication-item {
-            border-left: 3px solid #4a5568;
-            padding-left: 1.5rem;
-            transition: border-color 0.3s ease;
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            background: #e5e5e5;
         }
-        .publication-item:hover {
-            border-color: #d1d5db;
+        .glassmorphism {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .interactive-grid-cell {
-            transition: background-color 0.3s ease;
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-left: 2px solid #374151;
+        }
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+        .timeline-marker {
+            position: absolute;
+            left: -0.7rem;
+            top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: #1f2937;
+            border: 3px solid #6b7280;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover .timeline-marker {
+            background-color: #e5e5e5;
+            border-color: #e5e5e5;
+            transform: scale(1.1);
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #exploratorium-canvas {
+            background-color: #111111;
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+        }
+        .katex-display {
+             overflow-x: auto;
+             overflow-y: hidden;
+             scrollbar-width: thin;
+             scrollbar-color: #4b5563 #1f2937;
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-20 bg-opacity-50 bg-black backdrop-blur-sm transition-all duration-300">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <nav class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold text-white">Sir Shafiq Ur Rehman</a>
-                <ul class="hidden md:flex space-x-8 text-lg">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#research" class="nav-link">Research</a></li>
-                    <li><a href="#publications" class="nav-link">Publications</a></li>
-                    <li><a href="#exploratorium" class="nav-link">Exploratorium</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                <ul class="hidden md:flex items-center space-x-8 text-lg">
+                    <li><a href="#about" class="nav-link text-gray-300 hover:text-white">About</a></li>
+                    <li><a href="#experience" class="nav-link text-gray-300 hover:text-white">Experience</a></li>
+                    <li><a href="#interests" class="nav-link text-gray-300 hover:text-white">Interests</a></li>
+                    <li><a href="#exploratorium" class="nav-link text-gray-300 hover:text-white">Exploratorium</a></li>
+                    <li><a href="#contact" class="inline-block bg-gray-200 text-gray-900 hover:bg-white font-semibold py-2 px-5 rounded-md transition-all duration-300">Contact</a></li>
                 </ul>
-                <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
-                    &#9776;
+                <button id="mobile-menu-button" class="md:hidden text-white text-3xl z-50">
+                    <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </nav>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="flex flex-col items-center space-y-4 py-4">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#research" class="nav-link">Research</a></li>
-                <li><a href="#publications" class="nav-link">Publications</a></li>
-                <li><a href="#exploratorium" class="nav-link">Exploratorium</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-black bg-opacity-90 backdrop-blur-lg">
+            <ul class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+                <li><a href="#about" class="nav-link text-gray-300 hover:text-white">About</a></li>
+                <li><a href="#experience" class="nav-link text-gray-300 hover:text-white">Experience</a></li>
+                <li><a href="#interests" class="nav-link text-gray-300 hover:text-white">Interests</a></li>
+                <li><a href="#exploratorium" class="nav-link text-gray-300 hover:text-white">Exploratorium</a></li>
+                <li><a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a></li>
             </ul>
         </div>
     </header>
@@ -103,121 +170,213 @@
     <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
         <div id="hero-canvas" class="hero-canvas-container"></div>
         <div class="hero-overlay"></div>
-        <div class="content-section p-6">
-            <h1 class="text-6xl md:text-8xl font-bold text-white tracking-wider">Shafiq Ur Rehman</h1>
-            <p class="text-xl md:text-2xl mt-4 text-gray-300 font-light">Fields Medal Laureate | Professor of Mathematics & Physics</p>
-            <p class="text-lg md:text-xl mt-2 text-gray-400">Exploring the frontiers where Mathematics and Physics converge.</p>
+        <div class="content-section p-6 max-w-4xl mx-auto">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-tight">Sir Shafiq Ur Rehman</h1>
+            <p class="text-xl md:text-2xl mt-4 text-gray-300 font-light">Mathematical Scholar & Esteemed Educator in Physics & Mathematics</p>
+            <p class="text-lg md:text-xl mt-3 text-gray-400 max-w-2xl mx-auto">With over two decades of experience, I am dedicated to unveiling the profound unity between abstract mathematics and the physical laws of the cosmos.</p>
+            <a href="#about" class="group mt-10 inline-flex items-center justify-center gap-2 bg-white text-black font-bold py-3 px-8 rounded-lg text-lg shadow-lg shadow-white/10 hover:bg-gray-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <span>Explore My Profile</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
         </div>
     </section>
 
-    <div class="bg-[#111111]">
+    <main class="bg-[#111111]">
         <!-- About Section -->
-        <section id="about" class="py-20 content-section container mx-auto px-6">
-            <h2 class="text-5xl text-white mb-12 text-center">About the Mathematician</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-                <div class="md:col-span-1 flex justify-center">
-                    <img src="https://i.ibb.co/gLMZTWHV/Screenshot-2025-08-05-005803.png" alt="Sir Shafiq Ur Rehman in his office" class="rounded-lg shadow-2xl border-4 border-gray-700 w-full max-w-sm">
+        <section id="about" class="py-24 content-section container mx-auto px-6 fade-in-section">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+                <div class="lg:col-span-2 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute -inset-2 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg blur-lg opacity-50"></div>
+                        <img src="https://i.ibb.co/gLMZTWHV/Screenshot-2025-08-05-005803.png" onerror="this.onerror=null;this.src='https://placehold.co/400x400/111111/e5e5e5?text=S.R.'" alt="Sir Shafiq Ur Rehman" class="relative rounded-lg shadow-2xl border-2 border-gray-700 w-full">
+                    </div>
                 </div>
-                <div class="md:col-span-2 text-lg text-gray-300 leading-relaxed">
+                <div class="lg:col-span-3 text-lg text-gray-300 leading-relaxed">
+                    <h2 class="text-5xl text-white mb-6">A Lifelong Pursuit of Knowledge</h2>
                     <p class="mb-6">
-                        A major in mathematics with deep expertise in physics, Sir Shafiq Ur Rehman is a distinguished professor at the Institute for Advanced Study. His work is recognized globally for its transformative contributions at the intersection of the two fields.
-                    </p>
-                    <p class="mb-6">
-                        His research elegantly bridges disparate areas of mathematics, revealing profound, underlying connections between number theory and quantum physics, particularly in algebraic topology and the Geometric Langlands program. For this work, which is characterized by its deep insight and technical brilliance, he was awarded the Fields Medal in 2018.
+                        As a seasoned educator with a Master of Science in Applied Mathematics, my career has been a testament to a deep-seated passion for the sciences. I specialize in making complex concepts in Mathematics, Additional Mathematics, and Physics accessible and engaging for O-Level and A-Level students. My pedagogical approach is built on fostering intellectual curiosity and revealing the elegant interplay between mathematical theory and real-world application.
                     </p>
                     <p>
-                        He holds a Ph.D. from Princeton University and has been a visiting scholar at numerous prestigious institutions, including the Max Planck Institute for Mathematics and the Collège de France.
+                        Throughout my extensive teaching history, I have had the privilege of heading mathematics departments, developing curricula, and mentoring hundreds of students toward academic excellence. I am now seeking a challenging new role where I can continue to inspire the next generation of thinkers and contribute my expertise to a forward-thinking academic institution.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Research Section -->
-        <section id="research" class="py-20 bg-[#0a0a0a] content-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-5xl text-white mb-16 text-center">Core Research Areas</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800">
-                        <h3 class="text-3xl text-white mb-4">Homotopy Type Theory</h3>
-                        <p class="text-gray-400 mb-4">Exploring the foundations of mathematics by treating types as spaces, leading to new insights in logic, computer science, and geometry. Central to this is the univalence axiom:</p>
-                        <div class="text-center text-white">$$ (A \simeq B) \simeq (A = B) $$</div>
+        <!-- Professional Experience Section -->
+        <section id="experience" class="py-24 bg-[#0a0a0a] content-section">
+            <div class="container mx-auto px-6 fade-in-section">
+                <h2 class="text-5xl text-white mb-16 text-center">Professional Experience</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">AUGUST 2017 - 2020</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths & Physics Teacher</h3>
+                        <p class="text-lg text-gray-400">AES School for Girls, Gulistan-e-Johar, Karachi</p>
                     </div>
-                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800">
-                        <h3 class="text-3xl text-white mb-4">Geometric Langlands</h3>
-                        <p class="text-gray-400 mb-4">Investigating a deep conjecture relating geometric objects (sheaves on algebraic curves) to representation theory. This involves the study of D-modules and Hecke eigensheaves.</p>
-                        <div class="text-center text-white">$$ \text{Fun}(\text{Bun}_G(X)) \longleftrightarrow \text{IndCoh}(\text{LocSys}_{\check{G}}(X)) $$</div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">AUGUST 2012 - 2016</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths Teacher</h3>
+                        <p class="text-lg text-gray-400">The Hampton School, Clifton, Karachi</p>
                     </div>
-                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800">
-                        <h3 class="text-3xl text-white mb-4">Quantum Cohomology</h3>
-                        <p class="text-gray-400 mb-4">Deforming the classical cohomology ring of a symplectic manifold to count pseudoholomorphic curves, revealing connections to string theory and mirror symmetry. The quantum product is defined by Gromov-Witten invariants.</p>
-                        <div class="text-center text-white">$$ (a \star b, c) = \sum_{d \in H_2(M)} q^d \langle a, b, c \rangle_{0,3,d} $$</div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">MAY 2010 - 2012</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths & Physics Teacher</h3>
+                        <p class="text-lg text-gray-400">The Education Bay School, DHA, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">JANUARY 2004 - MAY 2010</p>
+                        <h3 class="text-2xl text-white mb-2">Head of Mathematics Department</h3>
+                        <p class="text-lg text-gray-400">The Falcon House Grammar School, North Nazimabad, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">JANUARY 2000 - DECEMBER 2003</p>
+                        <h3 class="text-2xl text-white mb-2">Head of Maths/Additional Maths Department</h3>
+                        <p class="text-lg text-gray-400">Shaheen Public School, Gulistan-e-Jauhar, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">AUGUST 1995 - DECEMBER 1999</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths Teacher</h3>
+                        <p class="text-lg text-gray-400">St. Michael's Convent School, Clifton, Karachi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Credentials Section -->
+        <section id="credentials" class="py-24 content-section">
+            <div class="container mx-auto px-6 fade-in-section">
+                <h2 class="text-5xl text-white mb-16 text-center">Credentials & Affiliations</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Academic Qualification -->
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 text-center">
+                        <h3 class="text-3xl text-white mb-4">Academic Qualification</h3>
+                        <div class="text-gray-300 space-y-3">
+                            <p><strong class="text-white">Master of Science (M.Sc)</strong><br>Applied Mathematics, 1992, First Division</p>
+                            <p><strong class="text-white">Bachelor of Science (B.Sc)</strong><br>1989, Second Division</p>
+                        </div>
+                    </div>
+                    <!-- Memberships -->
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 text-center">
+                        <h3 class="text-3xl text-white mb-4">Professional Memberships</h3>
+                        <div class="text-gray-300 space-y-3">
+                            <p>Member of MAP<br>(Mathematics Association of Pakistan)</p>
+                            <p>Member of SAP<br>(Science Association of Pakistan)</p>
+                        </div>
+                    </div>
+                    <!-- Professional Development -->
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 text-center">
+                        <h3 class="text-3xl text-white mb-4">Professional Development</h3>
+                        <div class="text-gray-300 space-y-3">
+                            <p>Agha Khan University Summer Workshops<br>(MAP & SAP, 2004 & 2005)</p>
+                            <p>Proficient in MS Office, Internet Research & Communication</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Publications Section -->
-        <section id="publications" class="py-20 content-section container mx-auto px-6">
-            <h2 class="text-5xl text-white mb-12 text-center">Selected Publications</h2>
-            <div class="space-y-10">
-                <div class="publication-item">
-                    <h4 class="text-2xl text-white mb-1">On the Categorification of Hecke Algebras</h4>
-                    <p class="text-gray-400">Rehman, S. U. (2022). <span class="italic">Journal of the American Mathematical Society, 35</span>(3), 789-841.</p>
-                </div>
-                <div class="publication-item">
-                    <h4 class="text-2xl text-white mb-1">Topological Invariants from Derived Symplectic Geometry</h4>
-                    <p class="text-gray-400">Rehman, S. U. (2018). <span class="italic">Annals of Mathematics, 188</span>(2), 345-401.</p>
-                </div>
-                <div class="publication-item">
-                    <h4 class="text-2xl text-white mb-1">A Homotopical Approach to the Geometric Langlands Correspondence</h4>
-                    <p class="text-gray-400">Rehman, S. U., & Alistair, J. (2015). <span class="italic">Inventiones Mathematicae, 201</span>(1), 1-97.</p>
-                </div>
-                 <div class="publication-item">
-                    <h4 class="text-2xl text-white mb-1">Moduli Spaces of Sheaves on Calabi-Yau Manifolds</h4>
-                    <p class="text-gray-400">Rehman, S. U. (2012). <span class="italic">Duke Mathematical Journal, 158</span>(3), 459-543.</p>
+        <!-- Areas of Interest Section -->
+        <section id="interests" class="py-24 bg-[#0a0a0a] content-section">
+            <div class="container mx-auto px-6 fade-in-section">
+                <h2 class="text-5xl text-white mb-16 text-center">Core Intellectual Interests</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 transition-all duration-300 hover:border-gray-500 hover:shadow-2xl transform hover:-translate-y-2">
+                        <h3 class="text-3xl text-white mb-4">Foundations of Mathematics</h3>
+                        <p class="text-gray-400">Exploring the logical and philosophical underpinnings of mathematics, with a focus on how abstract structures provide new perspectives on mathematical truth.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 transition-all duration-300 hover:border-gray-500 hover:shadow-2xl transform hover:-translate-y-2">
+                        <h3 class="text-3xl text-white mb-4">Unifying Geometry & Physics</h3>
+                        <p class="text-gray-400">Investigating the deep relationships between different branches of geometry and their powerful applications in describing the fabric of theoretical physics.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 transition-all duration-300 hover:border-gray-500 hover:shadow-2xl transform hover:-translate-y-2">
+                        <h3 class="text-3xl text-white mb-4">Pedagogical Innovation</h3>
+                        <p class="text-gray-400">Developing and implementing teaching strategies that demystify complex topics and ignite a genuine passion for learning in students of all backgrounds.</p>
+                    </div>
                 </div>
             </div>
         </section>
         
         <!-- Interactive Exploratorium Section -->
-        <section id="exploratorium" class="py-20 bg-[#111111] content-section">
-            <div class="container mx-auto px-6">
+        <section id="exploratorium" class="py-24 bg-[#111111] content-section">
+            <div class="container mx-auto px-6 fade-in-section">
                 <h2 class="text-5xl text-white mb-4 text-center">Mathematical Exploratorium</h2>
-                <p class="text-lg text-gray-400 text-center mb-12 max-w-3xl mx-auto">A small interactive space for mathematical concepts. Below is an implementation of Conway's Game of Life, a cellular automaton devised by John Conway. Click cells to bring them to life, then press Start.</p>
+                <p class="text-lg text-gray-400 text-center mb-12 max-w-3xl mx-auto">A simulation of a double pendulum. This simple system exhibits chaotic motion, where tiny changes in the starting position lead to vastly different outcomes—a beautiful illustration of a deep principle in mathematics and physics. Press Reset to see a new path unfold.</p>
                 
-                <div class="bg-[#1a1a1a] p-6 rounded-lg shadow-xl border border-gray-800">
-                    <div id="game-of-life-grid" class="grid mb-6" style="grid-template-columns: repeat(50, 1fr);"></div>
-                    <div class="flex justify-center space-x-4">
-                        <button id="start-button" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">Start</button>
-                        <button id="stop-button" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">Stop</button>
-                        <button id="reset-button" class="bg-gray-800 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">Reset</button>
+                <div class="flex flex-col items-center">
+                    <canvas id="exploratorium-canvas"></canvas>
+                    <button id="reset-pendulum-button" class="mt-8 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">Reset Simulation</button>
+                </div>
+
+                <div class="max-w-4xl mx-auto mt-16">
+                    <button id="toggle-math-button" class="w-full text-left text-2xl text-white font-semibold flex justify-between items-center p-4 bg-[#1a1a1a] rounded-lg border border-gray-800 hover:bg-gray-800 transition-colors">
+                        <span>The Mathematics of the Double Pendulum</span>
+                        <svg id="math-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div id="math-content" class="hidden mt-4 p-6 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-300 leading-relaxed space-y-6">
+                        <h4 class="text-2xl text-white">The Lagrangian</h4>
+                        <p>$\mathcal{L} = T - V$</p>
+
+                        <h5 class="text-xl text-white">Kinetic Energy (T)</h5>
+                        <p>$T = \frac{1}{2} m_1 l_1^2 \dot{\theta}_1^2 + \frac{1}{2} m_2 \left( l_1^2 \dot{\theta}_1^2 + l_2^2 \dot{\theta}_2^2 + 2 l_1 l_2 \dot{\theta}_1 \dot{\theta}_2 \cos(\theta_1 - \theta_2) \right)$</p>
+
+                        <h5 class="text-xl text-white">Potential Energy (V)</h5>
+                        <p>$V = -(m_1 + m_2) g l_1 \cos(\theta_1) - m_2 g l_2 \cos(\theta_2)$</p>
+                        
+                        <h4 class="text-2xl text-white">Equations of Motion</h4>
+                        <p>$\ddot{\theta}_1 = \frac{-g(2m_1+m_2)\sin\theta_1 - m_2 g \sin(\theta_1-2\theta_2) - 2\sin(\theta_1-\theta_2)m_2(\dot{\theta}_2^2 l_2 + \dot{\theta}_1^2 l_1 \cos(\theta_1-\theta_2))}{l_1(2m_1+m_2-m_2\cos(2\theta_1-2\theta_2))}$</p>
+                        
+                        <p>$\ddot{\theta}_2 = \frac{2\sin(\theta_1-\theta_2)\left(\dot{\theta}_1^2 l_1(m_1+m_2) + g(m_1+m_2)\cos\theta_1 + \dot{\theta}_2^2 l_2 m_2 \cos(\theta_1-\theta_2)\right)}{l_2(2m_1+m_2-m_2\cos(2\theta_1-2\theta_2))}$</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <footer id="contact" class="py-20 bg-[#0a0a0a] content-section">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-5xl text-white mb-8">Contact</h2>
-                <p class="text-lg text-gray-400 mb-2">Sir Shafiq Ur Rehman</p>
-                <p class="text-lg text-gray-400 mb-2">Institute for Advanced Study</p>
-                <p class="text-lg text-gray-400 mb-8">1 Einstein Drive, Princeton, NJ 08540</p>
-                <a href="mailto:s.rehman.office@ias.edu" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-colors text-xl">
-                    Send Inquiry
+        <footer id="contact" class="py-24 bg-[#0a0a0a] content-section">
+            <div class="container mx-auto px-6 text-center fade-in-section">
+                <h2 class="text-5xl text-white mb-6">Let's Connect</h2>
+                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">I am actively seeking new opportunities and would welcome the chance to discuss how my experience and dedication can benefit your institution. Please feel free to reach out.</p>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 mb-16">
+                    <a href="mailto:shafiqq_786@yahoo.com" class="flex items-center gap-3 text-lg text-gray-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        shafiqq_786@yahoo.com
+                    </a>
+                    <span class="hidden md:block text-gray-600">|</span>
+                    <a href="https://wa.me/923362307091" target="_blank" class="flex items-center gap-3 text-lg text-gray-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16.75 13.96c.25.13.41.2.46.3.05.1.04.68-.12 1.32-.15.64-.34 1.22-.59 1.32-.25.1-.64.04-1.12-.22-.48-.26-2.13-1.02-3.63-2.46-1.2-1.16-2-2.48-2.2-2.8-.2-.32-.04-.49.12-.65.16-.16.35-.42.49-.56.14-.14.28-.28.42-.42.14-.14.13-.28,0-.42-.13-.14-.28-.28-.42-.42s-.28-.28-.35-.28c-.07,0-.14,0-.21,0h-.28c-.07,0-.14,0-.21,0-.28,0-.42.07-.56.21-.14.14-.42.42-.56,1.12-.14.7-.28,1.4-.07,2.1.21.7,1.05,2.52,2.8,4.2,2.09,2.02,3.84,2.73,4.54,2.94.7.21,1.26.14,1.68-.07.42-.21.7-.84.84-1.54.14-.7.14-1.26,0-1.4-.14-.14-.28-.14-.42-.21zM12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path></svg>
+                        WhatsApp
+                    </a>
+                    <span class="hidden md:block text-gray-600">|</span>
+                    <a href="tel:+923362307091" class="flex items-center gap-3 text-lg text-gray-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        +92 336 2307091
+                    </a>
+                </div>
+
+                <a href="https://wa.me/923362307091" target="_blank" class="inline-block bg-white text-black font-bold py-4 px-10 rounded-lg text-xl hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                    Inquire on WhatsApp
                 </a>
             </div>
-            <div class="text-center text-gray-600 mt-16 border-t border-gray-800 pt-8">
-                <p>&copy; <span id="year"></span> Sir Shafiq Ur Rehman. All rights reserved.</p>
+            <div class="text-center text-gray-600 mt-24 border-t border-gray-800 pt-8">
+                <p>&copy; <span id="year"></span> Shafiq Ur Rehman. All rights reserved. | Website crafted with Gemini.</p>
             </div>
         </footer>
-    </div>
+    </main>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // KaTeX auto-rendering
+            // --- KaTeX Math Rendering ---
             renderMathInElement(document.body, {
                 delimiters: [
                     {left: '$$', right: '$$', display: true},
@@ -227,231 +386,269 @@
                 ],
                 throwOnError : false
             });
+            
+            // --- Math Toggle Button ---
+            const toggleBtn = document.getElementById('toggle-math-button');
+            const mathContent = document.getElementById('math-content');
+            const mathArrow = document.getElementById('math-arrow');
+            if(toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    mathContent.classList.toggle('hidden');
+                    mathArrow.classList.toggle('rotate-180');
+                });
+            }
 
-            // Mobile Menu Toggle
+            // --- Mobile Menu Toggle ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
+            const openIcon = document.getElementById('menu-open-icon');
+            const closeIcon = document.getElementById('menu-close-icon');
+
+            function toggleMenu() {
                 mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Close mobile menu when a link is clicked
+                openIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden'); // Prevent scrolling when menu is open
+            }
+
+            mobileMenuButton.addEventListener('click', toggleMenu);
             mobileMenu.addEventListener('click', (e) => {
                 if(e.target.tagName === 'A'){
-                    mobileMenu.classList.add('hidden');
+                   toggleMenu();
                 }
             });
 
-            // Header scroll effect
+            // --- Header Scroll Effect ---
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    header.classList.add('bg-opacity-90');
+                    header.classList.add('glassmorphism');
                 } else {
-                    header.classList.remove('bg-opacity-90');
+                    header.classList.remove('glassmorphism');
                 }
             });
 
-            // Set current year in footer
+            // --- Footer Year ---
             document.getElementById('year').textContent = new Date().getFullYear();
 
+            // --- Scroll Animations ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+
             // --- Three.js Hero Animation ---
-            let scene, camera, renderer, particles, mouse;
+            let scene, camera, renderer, particles;
             const container = document.getElementById('hero-canvas');
 
             function initThree() {
+                if (!container) return;
                 scene = new THREE.Scene();
                 camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
                 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                 renderer.setSize(container.offsetWidth, container.offsetHeight);
                 container.appendChild(renderer.domElement);
-                
-                mouse = new THREE.Vector2();
 
-                const particleCount = 5000;
+                const particleCount = 7000;
                 const positions = new Float32Array(particleCount * 3);
-                const velocities = new Float32Array(particleCount * 3);
-
-                for (let i = 0; i < particleCount; i++) {
-                    positions[i * 3] = (Math.random() - 0.5) * 20;
-                    positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-                    positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
-                    
-                    velocities[i * 3] = (Math.random() - 0.5) * 0.01;
-                    velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.01;
-                    velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.01;
+                for (let i = 0; i < particleCount * 3; i++) {
+                    positions[i] = (Math.random() - 0.5) * 25;
                 }
 
                 const geometry = new THREE.BufferGeometry();
                 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                geometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
 
                 const material = new THREE.PointsMaterial({
-                    color: 0xffffff,
-                    size: 0.02,
+                    color: 0x888888,
+                    size: 0.015,
                     transparent: true,
-                    opacity: 0.7,
+                    opacity: 0.6,
                     blending: THREE.AdditiveBlending
                 });
 
                 particles = new THREE.Points(geometry, material);
                 scene.add(particles);
-
-                camera.position.z = 10;
+                camera.position.z = 5;
                 
                 window.addEventListener('resize', onWindowResize, false);
                 document.addEventListener('mousemove', onMouseMove, false);
             }
 
+            let mouseX = 0, mouseY = 0;
             function onMouseMove(event) {
-                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                mouseX = (event.clientX - window.innerWidth / 2) / 1000;
+                mouseY = (event.clientY - window.innerHeight / 2) / 1000;
             }
 
             function animateThree() {
+                if (!renderer) return;
                 requestAnimationFrame(animateThree);
-
-                const positions = particles.geometry.attributes.position.array;
-                const velocities = particles.geometry.attributes.velocity.array;
-
-                for (let i = 0; i < positions.length / 3; i++) {
-                    const ix = i * 3;
-                    const iy = i * 3 + 1;
-                    const iz = i * 3 + 2;
-
-                    // Update position
-                    positions[ix] += velocities[ix];
-                    positions[iy] += velocities[iy];
-                    positions[iz] += velocities[iz];
-
-                    // Boundary check
-                    if (positions[ix] > 10 || positions[ix] < -10) velocities[ix] *= -1;
-                    if (positions[iy] > 10 || positions[iy] < -10) velocities[iy] *= -1;
-                    if (positions[iz] > 10 || positions[iz] < -10) velocities[iz] *= -1;
-                    
-                    // Mouse interaction
-                    const particleVector = new THREE.Vector3(positions[ix], positions[iy], positions[iz]);
-                    const mouseVector = new THREE.Vector3(mouse.x * 10, mouse.y * 10, 0);
-                    const distance = particleVector.distanceTo(mouseVector);
-                    
-                    if (distance < 2) {
-                        const force = (2 - distance) * 0.001;
-                        const direction = particleVector.sub(mouseVector).normalize();
-                        velocities[ix] += direction.x * force;
-                        velocities[iy] += direction.y * force;
-                    }
-                }
                 
-                particles.geometry.attributes.position.needsUpdate = true;
-                particles.rotation.y += 0.0001;
+                camera.position.x += (mouseX - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                particles.rotation.x += 0.0002;
+                particles.rotation.y += 0.0005;
 
                 renderer.render(scene, camera);
             }
 
             function onWindowResize() {
+                if (!renderer) return;
                 camera.aspect = container.offsetWidth / container.offsetHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(container.offsetWidth, container.offsetHeight);
             }
             
-            if (container) {
-                initThree();
-                animateThree();
-            }
+            initThree();
+            animateThree();
+            
+            // --- Double Pendulum Simulation ---
+            const canvas = document.getElementById('exploratorium-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let traceCanvas, traceCtx;
+                
+                let r1, r2, m1, m2, a1, a2, a1_v, a2_v, g;
+                let px2, py2;
+                let animationFrameId;
 
-            // --- Conway's Game of Life ---
-            const gridElement = document.getElementById('game-of-life-grid');
-            const startButton = document.getElementById('start-button');
-            const stopButton = document.getElementById('stop-button');
-            const resetButton = document.getElementById('reset-button');
+                function setupPendulum() {
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                    }
+                    
+                    const canvasSize = canvas.getBoundingClientRect().width;
+                    if (canvasSize === 0) return; // Don't setup if not visible/ready
+                    canvas.width = canvasSize;
+                    canvas.height = canvasSize;
 
-            const numCols = 50;
-            const numRows = 30;
-            let grid = new Array(numRows).fill(null).map(() => new Array(numCols).fill(0));
-            let intervalId = null;
+                    traceCanvas = document.createElement('canvas');
+                    traceCanvas.width = canvas.width;
+                    traceCanvas.height = canvas.height;
+                    traceCtx = traceCanvas.getContext('2d');
+                    traceCtx.fillStyle = 'rgba(17, 17, 17, 0.05)';
+                    
+                    r1 = canvas.width * 0.2;
+                    r2 = canvas.width * 0.2;
+                    m1 = 20;
+                    m2 = 20;
+                    a1 = Math.PI * (Math.random() * 0.4 + 0.8);
+                    a2 = Math.PI * (Math.random() * 0.4 + 0.8);
+                    a1_v = 0;
+                    a2_v = 0;
+                    g = 0.5;
 
-            function createGrid() {
-                gridElement.innerHTML = '';
-                gridElement.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
-                gridElement.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
+                    px2 = -1;
+                    py2 = -1;
 
-                for (let i = 0; i < numRows; i++) {
-                    for (let j = 0; j < numCols; j++) {
-                        const cell = document.createElement('div');
-                        cell.classList.add('interactive-grid-cell', 'w-full', 'aspect-square', 'border', 'border-gray-700');
-                        if (grid[i][j] === 1) {
-                            cell.style.backgroundColor = '#d1d5db';
+                    drawPendulum();
+                }
+
+                function drawPendulum() {
+                    let num1 = -g * (2 * m1 + m2) * Math.sin(a1);
+                    let num2 = -m2 * g * Math.sin(a1 - 2 * a2);
+                    let num3 = -2 * Math.sin(a1 - a2) * m2;
+                    let num4 = a2_v * a2_v * r2 + a1_v * a1_v * r1 * Math.cos(a1 - a2);
+                    let den = r1 * (2 * m1 + m2 - m2 * Math.cos(2 * a1 - 2 * a2));
+                    let a1_a = (num1 + num2 + num3 * num4) / den;
+
+                    num1 = 2 * Math.sin(a1 - a2);
+                    num2 = (a1_v * a1_v * r1 * (m1 + m2));
+                    num3 = g * (m1 + m2) * Math.cos(a1);
+                    num4 = a2_v * a2_v * r2 * m2 * Math.cos(a1 - a2);
+                    den = r2 * (2 * m1 + m2 - m2 * Math.cos(2 * a1 - 2 * a2));
+                    let a2_a = (num1 * (num2 + num3 + num4)) / den;
+
+                    a1_v += a1_a * 0.5;
+                    a2_v += a2_a * 0.5;
+                    a1 += a1_v;
+                    a2 += a2_v;
+                    
+                    a1_v *= 0.999;
+                    a2_v *= 0.999;
+
+                    traceCtx.fillRect(0, 0, traceCanvas.width, traceCanvas.height);
+                    
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(traceCanvas, 0, 0);
+
+                    const cx = canvas.width / 2;
+                    const cy = canvas.height / 2.2;
+
+                    let x1 = cx + r1 * Math.sin(a1);
+                    let y1 = cy + r1 * Math.cos(a1);
+                    let x2 = x1 + r2 * Math.sin(a2);
+                    let y2 = y1 + r2 * Math.cos(a2);
+
+                    if (px2 !== -1) {
+                        traceCtx.strokeStyle = 'rgba(248, 113, 113, 0.8)';
+                        traceCtx.lineWidth = 1.5;
+                        traceCtx.beginPath();
+                        traceCtx.moveTo(px2, py2);
+                        traceCtx.lineTo(x2, y2);
+                        traceCtx.stroke();
+                    }
+                    px2 = x2;
+                    py2 = y2;
+
+                    ctx.strokeStyle = '#9ca3af';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(cx, cy);
+                    ctx.lineTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = '#d1d5db';
+                    ctx.beginPath();
+                    ctx.arc(x1, y1, m1 / 2.5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(x2, y2, m2 / 2.5, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = '#6b7280';
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    animationFrameId = requestAnimationFrame(drawPendulum);
+                }
+                
+                document.getElementById('reset-pendulum-button').addEventListener('click', setupPendulum);
+                
+                const resizeObserver = new ResizeObserver(() => {
+                    if (animationFrameId) {
+                        setupPendulum();
+                    }
+                });
+
+                const pendulumObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            if (!animationFrameId) {
+                                setupPendulum();
+                            }
+                            resizeObserver.observe(canvas.parentElement);
                         } else {
-                            cell.style.backgroundColor = '#374151';
+                            if (animationFrameId) {
+                                cancelAnimationFrame(animationFrameId);
+                                animationFrameId = null;
+                            }
+                            resizeObserver.unobserve(canvas.parentElement);
                         }
-                        cell.addEventListener('click', () => toggleCell(i, j));
-                        gridElement.appendChild(cell);
-                    }
-                }
+                    });
+                }, { threshold: 0.1 });
+
+                pendulumObserver.observe(document.getElementById('exploratorium'));
             }
-
-            function toggleCell(row, col) {
-                if (intervalId) return; // Don't allow changes while running
-                grid[row][col] = grid[row][col] === 1 ? 0 : 1;
-                createGrid();
-            }
-
-            function nextGeneration() {
-                const newGrid = new Array(numRows).fill(null).map(() => new Array(numCols).fill(0));
-                for (let i = 0; i < numRows; i++) {
-                    for (let j = 0; j < numCols; j++) {
-                        const neighbors = countNeighbors(i, j);
-                        if (grid[i][j] === 1 && (neighbors < 2 || neighbors > 3)) {
-                            newGrid[i][j] = 0;
-                        } else if (grid[i][j] === 0 && neighbors === 3) {
-                            newGrid[i][j] = 1;
-                        } else {
-                            newGrid[i][j] = grid[i][j];
-                        }
-                    }
-                }
-                grid = newGrid;
-                createGrid();
-            }
-
-            function countNeighbors(row, col) {
-                let count = 0;
-                for (let i = -1; i <= 1; i++) {
-                    for (let j = -1; j <= 1; j++) {
-                        if (i === 0 && j === 0) continue;
-                        const newRow = (row + i + numRows) % numRows;
-                        const newCol = (col + j + numCols) % numCols;
-                        count += grid[newRow][newCol];
-                    }
-                }
-                return count;
-            }
-
-            startButton.addEventListener('click', () => {
-                if (!intervalId) {
-                    intervalId = setInterval(nextGeneration, 100);
-                    startButton.textContent = 'Running...';
-                    startButton.disabled = true;
-                }
-            });
-
-            stopButton.addEventListener('click', () => {
-                clearInterval(intervalId);
-                intervalId = null;
-                startButton.textContent = 'Start';
-                startButton.disabled = false;
-            });
-
-            resetButton.addEventListener('click', () => {
-                clearInterval(intervalId);
-                intervalId = null;
-                grid = new Array(numRows).fill(null).map(() => new Array(numCols).fill(0));
-                createGrid();
-                startButton.textContent = 'Start';
-                startButton.disabled = false;
-            });
-
-            createGrid();
         });
     </script>
 </body>
