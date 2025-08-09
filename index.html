@@ -2,18 +2,17 @@
 ********************************************************************************
 *
 * Digital Portfolio for Sir Shafiq Ur Rehman
-* Date: August 9, 2025
-* Version: 15.0 (Engraved Gold)
+* Date: August 10, 2025
+* Version: 15.4 (Reverted Gold Card Style)
 *
 * This website and its underlying source code are presented as a portfolio
 * piece for Sir Shafiq Ur Rehman. Unauthorized copying, reproduction, 
 * or distribution of this code for other purposes is discouraged.
 *
-* Changes in v15.0:
-* - Executed a "Maximum Capability" redesign of the Hall of Fame cards based on feedback.
-* - Removed the dark overlay ("shade") from the subject rows.
-* - Implemented a subtle "debossed" or "engraved" effect using inner shadows.
-* - Refined spacing and styles for a cleaner, more realistic premium look.
+* Changes in v15.4:
+* - Reverted the gold card styling to the original radial gradient.
+* - Ensured all particle/spotlight animation code was removed for a static background.
+* - Kept the `A*` and `A` grades styled with a consistent gold badge.
 *
 ********************************************************************************
 -->
@@ -24,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Sir Shafiq Ur Rehman | Expert Maths, Physics & Chemistry Educator</title>
+    <title>Sir Shafiq</title>
     <meta name="description" content="Explore the professional portfolio of Sir Shafiq Ur Rehman, an esteemed educator with over 20 years of experience in Mathematics, Physics, and Chemistry for O/A-Level students in Karachi.">
     <meta name="keywords" content="Maths teacher Karachi, Physics teacher Karachi, Chemistry teacher Karachi, A-Level Mathematics mentor, O-Level Physics educator, O-Level Chemistry, Shafiq Ur Rehman, experienced teacher, mathematical scholar, private mentoring, student results">
     <meta name="author" content="Sir Shafiq Ur Rehman">
@@ -146,16 +145,12 @@
         /* --- Styles for Satin Gold Theme Hall of Fame Section --- */
         #achievements { position: relative; background-color: #0a0a0a; }
         #particle-canvas {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;
-        }
-        #achievements::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
-            background: radial-gradient(ellipse at center, transparent 45%, #0a0a0a 100%); z-index: 2;
+            display: none; /* Hide the canvas for the spotlight effect */
         }
         
         /* Hall of Fame Title & Subtitle Styles */
         .hall-of-fame-title {
-            background: linear-gradient(120deg, #FFFDE4, #FFD700, #B8860B);
+            background: linear-gradient(120deg, #FFD700, #FDEE4C, #B8860B);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.3), 0 2px 5px rgba(0,0,0,0.5);
@@ -192,11 +187,11 @@
         .achievement-card {
             flex: 0 0 clamp(80%, 350px, 90%);
             scroll-snap-align: center;
-            background: radial-gradient(ellipse at 20% 80%, #FBF5B7 0%, #D4AF37 40%, #B8860B 100%);
+            background: radial-gradient(ellipse at 80% 20%, #FDF7D8 0%, #D4AF37 40%, #B8860B 100%);
             transform-style: preserve-3d;
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative; z-index: 3; overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), 0 5px 15px rgba(0,0,0,0.5), inset 0 0 20px rgba(255, 255, 255, 0.05), inset 0 2px 4px rgba(0,0,0,0.2);
         }
         
         .achievement-card-content { 
@@ -230,20 +225,21 @@
         .achievement-card .subject-row {
             border-radius: 0.5rem;
             padding: 0.75rem;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle inner background */
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(255,255,255,0.05);
         }
         .achievement-card .subject-name {
             color: #222;
             font-weight: 600;
         }
         .achievement-card .grade-badge {
-            background-color: #A9812A; 
+            background-color: #8B691C; 
             color: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.3);
             text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
-            border: 1px solid #8B691C;
+            border: 1px solid #5A4015;
         }
-        .achievement-card .subject-icon { color: #8B691C; }
+        .achievement-card .subject-icon { color: #5A4015; }
 
         /* Carousel Navigation */
         .carousel-nav-btn {
@@ -409,7 +405,6 @@
 
         <!-- Hall of Fame Section -->
         <section id="achievements" class="py-20 md:py-24 content-section overflow-hidden">
-             <canvas id="particle-canvas"></canvas>
             <div class="container mx-auto px-6 fade-in-section relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="hall-of-fame-title text-4xl md:text-5xl">Hall of Fame</h2>
@@ -427,9 +422,9 @@
                                     <p>Karachi Grammar School, A-Level</p>
                                 </div>
                                 <div class="space-y-3">
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
                                 </div>
                             </div>
                         </div>
@@ -442,9 +437,9 @@
                                     <p>Beaconhouse, O-Level</p>
                                 </div>
                                 <div class="space-y-3">
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
                                 </div>
                             </div>
                         </div>
@@ -457,8 +452,8 @@
                                     <p>Westminster Academy, A-Level</p>
                                 </div>
                                 <div class="space-y-3">
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A</span></div>
                                 </div>
                             </div>
                         </div>
@@ -471,9 +466,9 @@
                                     <p>Nixor O Levels</p>
                                 </div>
                                 <div class="space-y-3">
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
                                 </div>
                             </div>
                         </div>
@@ -486,7 +481,7 @@
                                     <p>The Lyceum School, A-Level</p>
                                 </div>
                                 <div class="space-y-3">
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A</span></div>
                                 </div>
                             </div>
                         </div>
@@ -499,7 +494,7 @@
                                     <p>Credo College, AS-Level</p>
                                 </div>
                                 <div class="space-y-3">
-                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge font-bold px-3 py-1 rounded-full">A</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A</span></div>
                                 </div>
                             </div>
                         </div>
@@ -758,7 +753,7 @@
                 const scrollAmount = () => {
                     const card = carousel.querySelector('.achievement-card');
                     const style = window.getComputedStyle(card);
-                    const marginRight = parseInt(style.marginRight, 10) || 0;
+                    const marginRight = parseInt(style.margin-right, 10) || 0;
                     return card ? card.offsetWidth + marginRight : 300;
                 };
 
@@ -792,76 +787,10 @@
             }
 
             // Particle Background for Achievements Section (Celestial Spotlight)
+            // No particle background for this version.
             const pCanvas = document.getElementById('particle-canvas');
             if(pCanvas){
-                const pCtx = pCanvas.getContext('2d');
-                let pW, pH;
-                let bgParticles = [];
-                const bgParticleCount = 300; 
-                let mouse = { x: null, y: null };
-
-                function resizeCanvas() {
-                    const parent = pCanvas.parentElement;
-                    pW = pCanvas.width = parent.offsetWidth;
-                    pH = pCanvas.height = parent.offsetHeight;
-                }
-
-                function Particle() {
-                    this.x = Math.random() * pW;
-                    this.y = Math.random() * pH;
-                    this.z = Math.random() * 2 + 1; // Depth
-                    this.radius = Math.random() * 1.2 + 0.3;
-                    this.alpha = Math.random() * 0.7 + 0.1;
-                    this.vx = (Math.random() - 0.5) * 0.1 * this.z;
-                    this.vy = (Math.random() - 0.5) * 0.1 * this.z;
-                }
-
-                function createParticles() {
-                    bgParticles = [];
-                    for (let i = 0; i < bgParticleCount; i++) {
-                        bgParticles.push(new Particle());
-                    }
-                }
-
-                function animateParticles() {
-                    pCtx.clearRect(0, 0, pW, pH);
-                    
-                    // Sweeping Light Ray
-                    const gradient = pCtx.createRadialGradient(pW / 2, pH, 0, pW / 2, pH, pW);
-                    const time = Date.now() * 0.0001;
-                    const lightX = pW / 2 + Math.sin(time) * pW * 0.4;
-                    const lightY = pH / 2 + Math.cos(time * 0.8) * pH * 0.4;
-
-                    const lightGradient = pCtx.createRadialGradient(lightX, lightY, 0, lightX, lightY, pW * 0.7);
-                    lightGradient.addColorStop(0, 'rgba(255, 215, 0, 0.06)');
-                    lightGradient.addColorStop(0.2, 'rgba(255, 215, 0, 0.03)');
-                    lightGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
-                    pCtx.fillStyle = lightGradient;
-                    pCtx.fillRect(0, 0, pW, pH);
-
-                    // Starfield
-                    bgParticles.forEach((p) => {
-                        p.x += p.vx;
-                        p.y += p.vy;
-
-                        if (p.x < 0 || p.x > pW) p.vx *= -1;
-                        if (p.y < 0 || p.y > pH) p.vy *= -1;
-
-                        pCtx.beginPath();
-                        pCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                        pCtx.fillStyle = `rgba(255, 215, 0, ${p.alpha * Math.sin(time * p.z * 2)})`;
-                        pCtx.fill();
-                    });
-                    requestAnimationFrame(animateParticles);
-                }
-                
-                resizeCanvas();
-                createParticles();
-                animateParticles();
-                window.addEventListener('resize', () => {
-                    resizeCanvas();
-                    createParticles();
-                });
+                pCanvas.remove();
             }
 
 
