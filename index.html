@@ -1,17 +1,704 @@
+\<!--
+********************************************************************************
+*
+* Digital Portfolio for Sir Shafiq Ur Rehman
+* Date: August 19, 2025
+* Version: 16.3 (Corrected Image Path & Text Layout)
+*
+* This website and its underlying source code are presented as a portfolio
+* piece for Sir Shafiq Ur Rehman. Unauthorized copying, reproduction, 
+* or distribution of this code for other purposes is discouraged.
+*
+* Changes in v16.3:
+* - Replaced the profile image URL with the correct raw GitHub link.
+* - Updated all meta tags and JSON-LD with the correct image and site URLs.
+* - Formatted the "Hall of Fame" cards to place the academic level on a new line.
+* - Removed the "Interactive Exploratorium" section and related code.
+*
+********************************************************************************
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://github.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/blob/main/37780518_1825203264222232_12882397922066432_n.jpg?raw=true" />
-    <meta name="twitter:image" content="https://github.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/blob/main/37780518_1825203264222232_12882397922066432_n.jpg?raw=true" />
+
+    <!-- SEO Meta Tags -->
+    <title>Sir Shafiq Ur Rehman | Portfolio</title>
+    <meta name="description" content="Explore the professional portfolio of Sir Shafiq Ur Rehman, an esteemed educator with over 20 years of experience in Mathematics, Physics, and Chemistry for O/A-Level students in Karachi.">
+    <meta name="keywords" content="Maths teacher Karachi, Physics teacher Karachi, Chemistry teacher Karachi, A-Level Mathematics mentor, O-Level Physics educator, O-Level Chemistry, Shafiq Ur Rehman, experienced teacher, mathematical scholar, private mentoring, student results">
+    <meta name="author" content="Sir Shafiq Ur Rehman">
+    <link rel="canonical" href="https://sir-shafiq-ur-rehman.github.io/Shafiq-Ur-Rehman/">
+
+    <!-- Favicon (Website Logo) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>SR</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>SR</text></svg>">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sir Shafiq Ur Rehman | Scholar & Educator in Maths, Physics & Chemistry">
+    <meta property="og:description" content="Discover the professional portfolio of an esteemed educator with over two decades of experience in Mathematics, Physics, and Chemistry.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/main/37780518_1825203264222232_12882397922066432_n.jpg">
+    <meta property="og:url" content="https://sir-shafiq-ur-rehman.github.io/Shafiq-Ur-Rehman/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sir Shafiq Ur Rehman's Portfolio">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sir Shafiq Ur Rehman | Scholar & Educator in Maths, Physics & Chemistry">
+    <meta name="twitter:description" content="Discover the professional portfolio of an esteemed educator with over two decades of experience in Mathematics, Physics, and Chemistry.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/main/37780518_1825203264222232_12882397922066432_n.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
-        {"@context": "https://schema.org","@type": "Person","image": "https://github.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/blob/main/37780518_1825203264222232_12882397922066432_n.jpg?raw=true"}
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sir Shafiq Ur Rehman",
+      "url": "https://sir-shafiq-ur-rehman.github.io/Shafiq-Ur-Rehman/",
+      "image": "https://raw.githubusercontent.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/main/37780518_1825203264222232_12882397922066432_n.jpg",
+      "jobTitle": "Scholar & Educator in Physics, Chemistry & Mathematics",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Various Educational Institutions in Karachi"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Karachi" 
+      },
+      "knowsAbout": ["Applied Mathematics", "Physics", "Chemistry", "O-Level Curriculum", "A-Level Curriculum", "Pedagogy", "Classical Mechanics", "Mentoring"],
+      "description": "An esteemed educator with over two decades of experience specializing in Mathematics, Physics, and Chemistry for O-Level and A-Level students in Karachi. Available for institutional roles and individual mentoring.",
+      "telephone": "+923362307091",
+      "email": "shafiqq_786@yahoo.com"
+    }
     </script>
-    <title>Your Title</title>
+
+    <!-- Custom Styles -->
+    <style>
+        /* --- Base Portfolio Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #a3a3a3;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #e5e5e5;
+        }
+        .hero-canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, rgba(5,5,5,0.1) 0%, rgba(5,5,5,0.9) 80%, #050505 100%);
+            z-index: 1;
+        }
+        .content-section { position: relative; z-index: 2; }
+        .nav-link {
+            transition: color 0.3s ease, border-color 0.3s ease;
+            border-bottom: 2px solid transparent; padding-bottom: 4px; position: relative;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 1px; display: block;
+            margin-top: 5px; right: 0; background: #e5e5e5; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; left: 0; background: #e5e5e5; }
+        .glassmorphism {
+            background: rgba(10, 10, 10, 0.5); backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .timeline-item {
+            position: relative; padding-left: 2.5rem; padding-bottom: 2.5rem; border-left: 2px solid #374151;
+        }
+        .timeline-item:last-child { border-left: 2px solid transparent; padding-bottom: 0; }
+        .timeline-marker {
+            position: absolute; left: -0.7rem; top: 0; width: 1.25rem; height: 1.25rem;
+            background-color: #1f2937; border: 3px solid #6b7280; border-radius: 9999px; transition: all 0.3s ease;
+        }
+        .timeline-item:hover .timeline-marker {
+            background-color: #e5e5e5; border-color: #e5e5e5; transform: scale(1.1);
+        }
+        .fade-in-section {
+            opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* --- Styles for Satin Gold Theme Hall of Fame Section --- */
+        #achievements { position: relative; background-color: #0a0a0a; }
+        .hall-of-fame-title {
+            background: linear-gradient(120deg, #FFD700, #FDEE4C, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3), 0 2px 5px rgba(0,0,0,0.5);
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .hall-of-fame-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.7), transparent);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .hall-of-fame-subtitle {
+            color: #EAE6D7; /* A warm, off-white */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        .achievement-carousel-container { position: relative; }
+        #achievements-carousel {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+            scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        #achievements-carousel::-webkit-scrollbar { display: none; }
+        .achievement-card {
+            flex: 0 0 clamp(80%, 350px, 90%);
+            scroll-snap-align: center;
+            background: radial-gradient(ellipse at 80% 20%, #FDF7D8 0%, #D4AF37 40%, #B8860B 100%);
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative; z-index: 3; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), 0 5px 15px rgba(0,0,0,0.5), inset 0 0 20px rgba(255, 255, 255, 0.05), inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .achievement-card-content { 
+            transform: translateZ(20px);
+            padding: 1.5rem;
+        }
+        .achievement-card::before { /* Shine Effect */
+            content: ''; position: absolute; top: -50%; left: -100%; width: 50%; height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-25deg);
+            transition: left 1s ease-in-out;
+            pointer-events: none;
+            z-index: 4;
+        }
+        .achievement-card:hover::before { 
+            left: 150%; 
+        }
+        .achievement-card h3 {
+            color: #111;
+            font-weight: 700;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+        }
+         .achievement-card p {
+            color: #333;
+            font-weight: 500;
+        }
+        .achievement-card .subject-row {
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle inner background */
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(255,255,255,0.05);
+        }
+        .achievement-card .subject-name {
+            color: #222;
+            font-weight: 600;
+        }
+        .achievement-card .grade-badge {
+            background-color: #8B691C; 
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.3);
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+            border: 1px solid #5A4015;
+        }
+        .achievement-card .subject-icon { color: #5A4015; }
+        .carousel-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background-color: rgba(31, 41, 55, 0.5); color: white;
+            border: 1px solid #4b5563; border-radius: 9999px;
+            width: 40px; height: 40px; display: flex; align-items: center;
+            justify-content: center; cursor: pointer; transition: all 0.3s ease;
+            backdrop-filter: blur(5px); z-index: 10;
+        }
+        .carousel-nav-btn:hover { background-color: rgba(255, 215, 0, 0.5); border-color: #FFD700; }
+        #prev-btn { left: 10px; }
+        #next-btn { right: 10px; }
+    </style>
 </head>
-<body>
-    <img src="https://github.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/blob/main/37780518_1825203264222232_12882397922066432_n.jpg?raw=true" alt="Profile Image">
-    <h1>Welcome</h1>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-white">Sir Shafiq Ur Rehman</a>
+                <ul class="hidden md:flex items-center space-x-8 text-lg">
+                    <li><a href="#about" class="nav-link text-gray-300 hover:text-white">About</a></li>
+                    <li><a href="#experience" class="nav-link text-gray-300 hover:text-white">Experience</a></li>
+                    <li><a href="#achievements" class="nav-link text-gray-300 hover:text-white">Hall of Fame</a></li>
+                    <li><a href="#interests" class="nav-link text-gray-300 hover:text-white">Interests</a></li>
+                    <li><a href="#contact" class="inline-block bg-gray-200 text-gray-900 hover:bg-white font-semibold py-2 px-5 rounded-md transition-all duration-300">Contact</a></li>
+                </ul>
+                <button id="mobile-menu-button" class="md:hidden text-white text-3xl z-50">
+                    <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-black bg-opacity-90 backdrop-blur-lg">
+            <ul class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+                <li><a href="#about" class="nav-link text-gray-300 hover:text-white">About</a></li>
+                <li><a href="#experience" class="nav-link text-gray-300 hover:text-white">Experience</a></li>
+                <li><a href="#achievements" class="nav-link text-gray-300 hover:text-white">Hall of Fame</a></li>
+                <li><a href="#interests" class="nav-link text-gray-300 hover:text-white">Interests</a></li>
+                <li><a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <div id="hero-canvas" class="hero-canvas-container"></div>
+        <div class="hero-overlay"></div>
+        <div class="content-section p-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl sm:text-6xl md:text-8xl font-bold text-white tracking-tighter leading-tight">Sir Shafiq Ur Rehman</h1>
+            <p class="text-lg sm:text-xl md:text-2xl mt-4 text-gray-300 font-light">Scholar & Esteemed Educator in Mathematics, Physics & Chemistry</p>
+            <p class="text-base sm:text-lg md:text-xl mt-3 text-gray-400 max-w-2xl mx-auto">With over two decades of experience, he is dedicated to unveiling the profound unity between abstract mathematics and the physical sciences.</p>
+            <a href="#about" class="group mt-10 inline-flex items-center justify-center gap-2 bg-white text-black font-bold py-3 px-8 rounded-lg text-lg shadow-lg shadow-white/10 hover:bg-gray-200 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <span>Explore His Profile</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <main class="bg-[#111111]">
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-24 content-section container mx-auto px-6 fade-in-section">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+                <div class="lg:col-span-2 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute -inset-2 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg blur-lg opacity-50"></div>
+                        <img src="https://raw.githubusercontent.com/Sir-Shafiq-Ur-Rehman/Shafiq-Ur-Rehman/main/37780518_1825203264222232_12882397922066432_n.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/111111/e5e5e5?text=S.R.'" alt="Professional portrait of Sir Shafiq Ur Rehman, a mathematical scholar and educator." class="relative rounded-lg shadow-2xl border-2 border-gray-700 w-full">
+                    </div>
+                </div>
+                <div class="lg:col-span-3 text-lg text-gray-300 leading-relaxed">
+                    <h2 class="text-4xl md:text-5xl text-white mb-6">A Lifelong Pursuit of Knowledge</h2>
+                    <p class="mb-6">
+                        As a seasoned educator with a Master of Science in Applied Mathematics, his career has been a testament to a deep-seated passion for the sciences. He specializes in making complex concepts in Mathematics, Physics, and Chemistry accessible and engaging for O-Level and A-Level students. His pedagogical approach is built on fostering intellectual curiosity and revealing the elegant interplay between scientific theory and real-world application.
+                    </p>
+                    <p>
+                        Throughout his extensive teaching history, he has had the privilege of heading mathematics departments, developing curricula, and mentoring hundreds of students toward academic excellence. He is now seeking a challenging new role within a forward-thinking academic institution and also welcomes inquiries for individual student mentoring, where he can continue to inspire the next generation of thinkers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="py-20 md:py-24 bg-[#0a0a0a] content-section">
+            <div class="container mx-auto px-6 fade-in-section">
+                <h2 class="text-4xl md:text-5xl text-white mb-16 text-center">Professional Experience</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">AUGUST 2017 - 2020</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths & Physics Teacher</h3>
+                        <p class="text-lg text-gray-400">AES School for Girls, Gulistan-e-Johar, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">AUGUST 2012 - 2016</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths Teacher</h3>
+                        <p class="text-lg text-gray-400">The Hampton School, Clifton, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">MAY 2010 - 2012</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths & Physics Teacher</h3>
+                        <p class="text-lg text-gray-400">The Education Bay School, DHA, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">JANUARY 2004 - MAY 2010</p>
+                        <h3 class="text-2xl text-white mb-2">Head of Mathematics Department</h3>
+                        <p class="text-lg text-gray-400">The Falcon House Grammar School, North Nazimabad, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">JANUARY 2000 - DECEMBER 2003</p>
+                        <h3 class="text-2xl text-white mb-2">Head of Maths/Additional Maths Department</h3>
+                        <p class="text-lg text-gray-400">Shaheen Public School, Gulistan-e-Jauhar, Karachi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <p class="text-sm text-gray-500 mb-1">AUGUST 1995 - DECEMBER 1999</p>
+                        <h3 class="text-2xl text-white mb-2">Maths/Additional Maths Teacher</h3>
+                        <p class="text-lg text-gray-400">St. Michael's Convent School, Clifton, Karachi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credentials Section -->
+        <section id="credentials" class="py-20 md:py-24 content-section">
+            <div class="container mx-auto px-6 fade-in-section">
+                <h2 class="text-4xl md:text-5xl text-white mb-16 text-center">Credentials & Affiliations</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 text-center">
+                        <h3 class="text-3xl text-white mb-4">Academic Qualification</h3>
+                        <div class="text-gray-300 space-y-3">
+                            <p><strong class="text-white">Master of Science (M.Sc)</strong><br>Applied Mathematics, 1992, First Division</p>
+                            <p><strong class="text-white">Bachelor of Science (B.Sc)</strong><br>1989, Second Division</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 text-center">
+                        <h3 class="text-3xl text-white mb-4">Professional Memberships</h3>
+                        <div class="text-gray-300 space-y-3">
+                            <p>Member of MAP<br>(Mathematics Association of Pakistan)</p>
+                            <p>Member of SAP<br>(Science Association of Pakistan)</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 text-center">
+                        <h3 class="text-3xl text-white mb-4">Professional Development</h3>
+                        <div class="text-gray-300 space-y-3">
+                            <p>Agha Khan University Summer Workshops<br>(MAP & SAP, 2004 & 2005)</p>
+                            <p>Proficient in MS Office, Internet Research & Communication</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hall of Fame Section -->
+        <section id="achievements" class="py-20 md:py-24 content-section overflow-hidden">
+            <div class="container mx-auto px-6 fade-in-section relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="hall-of-fame-title text-4xl md:text-5xl">Hall of Fame</h2>
+                    <p class="hall-of-fame-subtitle text-lg max-w-3xl mx-auto">A showcase of academic excellence.</p>
+                </div>
+                
+                <div class="achievement-carousel-container">
+                    <div id="achievements-carousel" class="flex pb-8 -mx-6 px-6 md:px-8 lg:px-12 gap-6 md:gap-8">
+                        
+                        <!-- Achievement Card: Syed Shayaan Hassan -->
+                        <div class="achievement-card rounded-2xl">
+                            <div class="achievement-card-content">
+                                <div class="mb-4">
+                                    <h3 class="text-2xl">Syed Shayaan Hassan</h3>
+                                    <p>Examination Center - Karachi Grammar School<br>A-Level</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievement Card: Saadia Wajid -->
+                        <div class="achievement-card rounded-2xl">
+                             <div class="achievement-card-content">
+                                <div class="mb-4">
+                                    <h3 class="text-2xl">Saadia Wajid</h3>
+                                    <p>Examination Center - Beaconhouse<br>O-Level</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievement Card: Mahrukh Masroor (A-Level) -->
+                        <div class="achievement-card rounded-2xl">
+                             <div class="achievement-card-content">
+                                <div class="mb-4">
+                                    <h3 class="text-2xl">Mahrukh Masroor</h3>
+                                    <p>Examination Center - Westminster Academy<br>A-Level</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Achievement Card: Mahrukh Masroor (O-Level) -->
+                        <div class="achievement-card rounded-2xl">
+                             <div class="achievement-card-content">
+                                <div class="mb-4">
+                                    <h3 class="text-2xl">Mahrukh Masroor</h3>
+                                    <p>Examination Center - Nixor O Levels<br>O-Level</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>Physics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M14.5 2a2.5 2.5 0 0 0-5 0v1a2.5 2.5 0 0 0 5 0V2Z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="M19 19a7 7 0 1 0-14 0"/></svg>Chemistry</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A*</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievement Card: Mehreen Masroor -->
+                        <div class="achievement-card rounded-2xl">
+                             <div class="achievement-card-content">
+                                <div class="mb-4">
+                                    <h3 class="text-2xl">Mehreen Masroor</h3>
+                                    <p>Examination Center - The Lyceum School<br>A-Level</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievement Card: Fatima Noor Khan -->
+                        <div class="achievement-card rounded-2xl">
+                             <div class="achievement-card-content">
+                                <div class="mb-4">
+                                    <h3 class="text-2xl">Fatima Noor Khan</h3>
+                                    <p>Examination Center - Credo College<br>AS-Level</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="subject-row flex justify-between items-center"><span class="subject-name flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="subject-icon"><path d="M4 7V4h16v3"/><path d="M5 20h14"/><path d="M17 4v16"/><path d="M12 4v16"/><path d="M7 4v16"/></svg>Mathematics</span><span class="grade-badge a-grade font-bold px-3 py-1 rounded-full">A</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation Buttons -->
+                    <button id="prev-btn" class="carousel-nav-btn hidden md:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button id="next-btn" class="carousel-nav-btn hidden md:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-gray-500 italic text-lg">...and countless others who have secured top grades over two decades of dedicated teaching.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Areas of Interest Section -->
+        <section id="interests" class="py-20 md:py-24 bg-[#111111] content-section">
+            <div class="container mx-auto px-6 fade-in-section">
+                <h2 class="text-4xl md:text-5xl text-white mb-16 text-center">Core Intellectual Interests</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 transition-all duration-300 hover:border-gray-500 hover:shadow-2xl transform hover:-translate-y-2">
+                        <h3 class="text-3xl text-white mb-4">Foundations of Mathematics</h3>
+                        <p class="text-gray-400">Exploring the logical and philosophical underpinnings of mathematics, with a focus on how abstract structures provide new perspectives on mathematical truth.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 transition-all duration-300 hover:border-gray-500 hover:shadow-2xl transform hover:-translate-y-2">
+                        <h3 class="text-3xl text-white mb-4">Unifying Physics & Geometry</h3>
+                        <p class="text-gray-400">Investigating the deep relationships between different branches of geometry and their powerful applications in describing the fabric of theoretical physics.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-8 rounded-lg shadow-xl border border-gray-800 transition-all duration-300 hover:border-gray-500 hover:shadow-2xl transform hover:-translate-y-2">
+                        <h3 class="text-3xl text-white mb-4">Chemical Principles & Applications</h3>
+                        <p class="text-gray-400">Connecting the theoretical principles of chemistry to practical phenomena, revealing the molecular interactions that govern the world around us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <footer id="contact" class="py-20 md:py-24 bg-[#111111] content-section">
+            <div class="container mx-auto px-6 text-center fade-in-section">
+                <h2 class="text-4xl md:text-5xl text-white mb-6">Let's Connect</h2>
+                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">He is actively seeking new opportunities and welcomes inquiries from academic institutions as well as from individuals seeking dedicated, one-on-one mentoring. He would be delighted to discuss how his experience and dedication can meet your needs.</p>
+
+                <div class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 md:gap-8 mb-16">
+                    <a href="mailto:shafiqq_786@yahoo.com" class="flex items-center gap-3 text-lg text-gray-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        shafiqq_786@yahoo.com
+                    </a>
+                    <span class="hidden md:block text-gray-600">|</span>
+                    <a href="tel:+923362307091" class="flex items-center gap-3 text-lg text-gray-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        +92 336 2307091
+                    </a>
+                    <span class="hidden md:block text-gray-600">|</span>
+                    <a href="https://wa.me/923362307091" target="_blank" class="flex items-center gap-3 text-lg text-gray-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16.75 13.96c.25.13.41.2.46.3.05.1.04.68-.12 1.32-.15.64-.34 1.22-.59 1.32-.25.1-.64.04-1.12-.22-.48-.26-2.13-1.02-3.63-2.46-1.2-1.16-2-2.48-2.2-2.8-.2-.32-.04-.49.12-.65.16-.16.35-.42.49-.56.14-.14.28-.28.42-.42.14-.14.13-.28,0-.42-.13-.14-.28-.28-.42-.42s-.28-.28-.35-.28c-.07,0-.14,0-.21,0h-.28c-.07,0-.14,0-.21,0-.28,0-.42.07-.56.21-.14.14-.42.42-.56,1.12-.14.7-.28,1.4-.07,2.1.21.7,1.05,2.52,2.8,4.2,2.09,2.02,3.84,2.73,4.54,2.94.7.21,1.26.14,1.68-.07.42-.21.7-.84.84-1.54.14-.7.14-1.26,0-1.4-.14-.14-.28-.14-.42-.21zM12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path></svg>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <a href="https://wa.me/923362307091" target="_blank" class="inline-block bg-white text-black font-bold py-4 px-10 rounded-lg text-xl hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                    Inquire on WhatsApp
+                </a>
+            </div>
+            <div class="text-center text-gray-600 mt-24 border-t border-gray-800 pt-8">
+                <p>&copy; <span id="year"></span> Shafiq Ur Rehman. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Mobile Floating Contact Button -->
+    <a href="#contact" class="md:hidden fixed bottom-6 right-6 bg-white text-black p-4 rounded-full shadow-lg z-40 transition-transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-open-icon');
+            const closeIcon = document.getElementById('menu-close-icon');
+
+            function toggleMenu() {
+                mobileMenu.classList.toggle('hidden');
+                openIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            }
+
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            mobileMenu.addEventListener('click', (e) => {
+                if(e.target.tagName === 'A'){
+                   toggleMenu();
+                }
+            });
+
+            // --- Header Scroll Effect ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('glassmorphism');
+                } else {
+                    header.classList.remove('glassmorphism');
+                }
+            });
+
+            // --- Footer Year ---
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Scroll Animations ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+
+            // --- Three.js Hero Animation ---
+            let scene, camera, renderer, heroParticles;
+            const container = document.getElementById('hero-canvas');
+
+            function initThree() {
+                if (!container) return;
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+                container.appendChild(renderer.domElement);
+
+                const particleCount = 7000;
+                const positions = new Float32Array(particleCount * 3);
+                for (let i = 0; i < particleCount * 3; i++) {
+                    positions[i] = (Math.random() - 0.5) * 25;
+                }
+
+                const geometry = new THREE.BufferGeometry();
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+                const material = new THREE.PointsMaterial({
+                    color: 0x888888, size: 0.015, transparent: true,
+                    opacity: 0.6, blending: THREE.AdditiveBlending
+                });
+
+                heroParticles = new THREE.Points(geometry, material);
+                scene.add(heroParticles);
+                camera.position.z = 5;
+
+                window.addEventListener('resize', onWindowResize, false);
+                document.addEventListener('mousemove', onMouseMove, false);
+            }
+
+            let mouseX = 0, mouseY = 0;
+            function onMouseMove(event) {
+                mouseX = (event.clientX - window.innerWidth / 2) / 1000;
+                mouseY = (event.clientY - window.innerHeight / 2) / 1000;
+            }
+
+            function animateThree() {
+                if (!renderer) return;
+                requestAnimationFrame(animateThree);
+
+                camera.position.x += (mouseX - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                heroParticles.rotation.x += 0.0002;
+                heroParticles.rotation.y += 0.0005;
+
+                renderer.render(scene, camera);
+            }
+
+            function onWindowResize() {
+                if (!renderer) return;
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            }
+
+            initThree();
+            animateThree();
+            
+            // --- Achievements Carousel & 3D Tilt Effect ---
+            const carousel = document.getElementById('achievements-carousel');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const cards = document.querySelectorAll('.achievement-card');
+
+            if (carousel) {
+                // Carousel Navigation
+                const scrollAmount = () => {
+                    const card = carousel.querySelector('.achievement-card');
+                    const style = window.getComputedStyle(card);
+                    const marginRight = parseInt(style.marginRight, 10) || 0; // Use marginRight for gap
+                    return card ? card.offsetWidth + marginRight : 300;
+                };
+
+                prevBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+                });
+
+                // 3D Tilt Effect
+                cards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const { width, height } = rect;
+                        const rotateX = (y / height - 0.5) * -12; // Invert for natural feel, less intense
+                        const rotateY = (x / width - 0.5) * 12;
+
+                        card.style.setProperty('--mouse-x', `${x}px`);
+                        card.style.setProperty('--mouse-y', `${y}px`);
+                        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
